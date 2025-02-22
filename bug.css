@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+.container {
+  width: 500px;
+}
+
+#myId .container {
+  width: 200px;
+}
+
+.container.myClass {
+  width: 300px;
+}
+
+#myId .container.myClass {
+  width: 100px;
+}
+```
+
+In this case, `#myId .container.myClass` has higher specificity than `.container.myClass`, which, in turn, has higher specificity than `.container` and `#myId .container`. However, the expected behavior (100px) is not always observed due to a lack of understanding of the CSS cascade and specificity. The issue arises when the wrong order of CSS rules leads to unexpected behavior.
