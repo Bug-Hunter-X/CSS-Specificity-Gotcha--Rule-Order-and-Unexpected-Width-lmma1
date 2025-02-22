@@ -1,0 +1,21 @@
+The solution involves reorganizing the CSS rules to ensure that the most specific selector is always the last one that is processed:
+
+```css
+.container {
+  width: 500px;
+}
+
+#myId .container {
+  width: 200px;
+}
+
+.container.myClass {
+  width: 300px;
+}
+
+#myId .container.myClass {
+  width: 100px;
+}
+```
+
+By ordering the rules from least to most specific, the cascade works predictably.  This is a best practice for CSS authoring to avoid confusing behavior.
